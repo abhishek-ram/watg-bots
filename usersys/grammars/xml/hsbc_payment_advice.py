@@ -92,7 +92,13 @@ recorddefs = {
 'Adr':
     [
     ['BOTSID', 'M', 256, 'AN'],
+    ['StrtNm', 'C', 256, 'AN'],
+    ['BldgNb', 'C', 256, 'AN'],
+    ['PstCd', 'C', 256, 'AN'],
+    ['TwnNm', 'C', 256, 'AN'],
+    ['CtrySubDvsn', 'C', 256, 'AN'],
     ['Ctry', 'C', 256, 'AN'],
+    ['AdrLine', 'C', 256, 'AN'],
     ],
 'Amt':
     [
@@ -125,17 +131,6 @@ recorddefs = {
     [
     ['BOTSID', 'M', 256, 'AN'],
     ['Nm', 'C', 256, 'AN'],
-    ],
-'Adr':
-    [
-    ['BOTSID', 'M', 256, 'AN'],
-    ['StrtNm', 'C', 256, 'AN'],
-    ['BldgNb', 'C', 256, 'AN'],
-    ['PstCd', 'C', 256, 'AN'],
-    ['TwnNm', 'C', 256, 'AN'],
-    ['CtrySubDvsn', 'C', 256, 'AN'],
-    ['Ctry', 'C', 256, 'AN'],
-    ['AdrLine', 'C', 256, 'AN'],
     ],
 'Cdtr':
     [

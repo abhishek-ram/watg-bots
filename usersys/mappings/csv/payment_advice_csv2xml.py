@@ -291,6 +291,12 @@ def main(inn, out):
                                  {'BOTSID': 'RltdRmtInf',
                                   'RmtLctnMtd': 'EMAL',
                                   'RmtLctnElctrncAdr': recipient})
+
+            # Map the unstructured remittance information
+            cdt_info.put({'BOTSID': 'CdtTrfTxInf'},
+                         {'BOTSID': 'RmtInf',
+                          'Ustrd': lin.get({'BOTSID': 'PMT', 'remittance_unstructured': None})})
+
             rmt_inv_num = lin.get(
                 {'BOTSID': 'PMT', 'remittance_invoice_num': None})
             if rmt_inv_num:
@@ -322,6 +328,12 @@ def main(inn, out):
             e2e_id = this_e2e_id
         # For all subsequent lines write only the remittance information
         else:
+            # Map the unstructured remittance information
+            cdt_info.put({'BOTSID': 'CdtTrfTxInf'},
+                         {'BOTSID': 'RmtInf',
+                          'Ustrd': lin.get({'BOTSID': 'PMT', 'remittance_unstructured': None})})
+
+            # Map the structured remittance information
             rmt_inv_num = lin.get(
                 {'BOTSID': 'PMT', 'remittance_invoice_num': None})
             if rmt_inv_num:

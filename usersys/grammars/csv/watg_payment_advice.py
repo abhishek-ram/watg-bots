@@ -19,7 +19,7 @@ recorddefs = {
     'PMT':[
         ['BOTSID','M',3,'A'],
         ['hsbc_connect_id', 'M', 256, 'AN'],
-        ['authorization_code', 'M', 256, 'AN'],
+        ['authorization_code', 'C', 256, 'AN'],
         ['payment_identifier', 'M', 256, 'AN'],
         ['endtoend_identifier', 'M', 256, 'AN'],
         ['payment_method', 'C', 256, 'AN'],
@@ -64,6 +64,7 @@ recorddefs = {
         ['remittance_invoice_amount', 'C', 256, 'AN'],
         ['remittance_invoice_reference', 'C', 256, 'AN'],
         ['payment_purpose2', 'C', 256, 'AN'],
+        ['remittance_unstructured', 'C', 105, 'AN'],
     ]
 }
 
