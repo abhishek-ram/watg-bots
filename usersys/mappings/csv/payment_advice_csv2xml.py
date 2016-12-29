@@ -13,6 +13,11 @@ def main(inn, out):
             doc_num = lin.get({'BOTSID': 'PMT', 'payment_identifier': None})
             inn.ta_info['botskey'] = out.ta_info['botskey'] = doc_num
 
+            # Generate the message ID and create a lookup between message ID
+            # and payment identifier
+            message_id = 'MG%s' % transform.unique('Message Number')
+            transform.persist_add_update(
+                'message_lookup', message_id, doc_num)
             # Write the output document header
             out.put({'BOTSID': 'Document',
                      'Document__xmlns':
@@ -25,7 +30,7 @@ def main(inn, out):
             out.put({'BOTSID': 'Document'},
                     {'BOTSID': 'CstmrCdtTrfInitn'},
                     {'BOTSID': 'GrpHdr',
-                     'MsgId': 'MG%s' % transform.unique('Message Number')})
+                     'MsgId': message_id})
 
             out.put({'BOTSID': 'Document'},
                     {'BOTSID': 'CstmrCdtTrfInitn'},
