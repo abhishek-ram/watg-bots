@@ -1,0 +1,39 @@
+<html xmlns:py="http://genshi.edgewall.org/" py:strip="True">
+    <div>
+        <py:choose>
+            <py:when test="data.header['status']">
+                <p>
+                    We have received the initial acknowledgement for payment with ID "<b>${data.header['payment_identifier']}</b>".
+                    The status of the transaction is "<b>${data.header['status']}</b>"
+                </p>
+            </py:when>
+            <py:otherwise>
+                <p>
+                    We have received the second acknowledgement for payment with ID "<b>${data.header['payment_identifier']}</b>".
+                    The status each transaction in the payment can be found below:
+                </p>
+            </py:otherwise>
+        </py:choose>
+        <br/>
+        <br/>
+        <table class="lines" py:if="data.lines">
+            <thead>
+                <tr>
+                    <th>End To End Id</th>
+                    <th>Status</th>
+                    <th>Additional Status Code</th>
+                    <th>Additional Status Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr py:for="line in data.lines">
+                    <td >${line['endtoend_identifier']}</td>
+                    <td >${line['status']}</td>
+                    <td >${line['additional_status_code']}</td>
+                    <td >${line['additional_status_text']}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+</html>
