@@ -89,6 +89,7 @@ ENV/
 .ropeproject
 
 # This Project
+.DS_Store
 .idea/
 botssys/
 config/
